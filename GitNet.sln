@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitNet", "GitNet\GitNet.csproj", "{310EB437-EAB1-4589-8755-3782DE37E786}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitNet.Test", "GitNet.Test\GitNet.Test.csproj", "{B31871A0-EBA5-4ADC-8CB0-4E67A8B8895A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{310EB437-EAB1-4589-8755-3782DE37E786}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{310EB437-EAB1-4589-8755-3782DE37E786}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{310EB437-EAB1-4589-8755-3782DE37E786}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{310EB437-EAB1-4589-8755-3782DE37E786}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B31871A0-EBA5-4ADC-8CB0-4E67A8B8895A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B31871A0-EBA5-4ADC-8CB0-4E67A8B8895A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B31871A0-EBA5-4ADC-8CB0-4E67A8B8895A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B31871A0-EBA5-4ADC-8CB0-4E67A8B8895A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

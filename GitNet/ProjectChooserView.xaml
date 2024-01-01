@@ -1,0 +1,88 @@
+﻿<Window x:Class="GitNet.ProjectChooserView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:GitNet"
+        mc:Ignorable="d"
+        Width="{Binding WindowWidth}"
+        Height="{Binding WindowHeight}"
+        MaxHeight="{Binding WindowHeight}"
+        d:DesignHeight="{Binding WindowHeight}"
+        d:DesignWidth="{Binding WindowWidth}"
+        d:DataContext="{d:DesignInstance local:ProjectChooserDialogViewModel}"
+        Title="{Binding WindowTitle}"
+        >
+    <Grid Margin="8">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TextBlock
+            Text="{Binding GitRepoPromptText}"
+            Grid.Row="0"
+            Grid.ColumnSpan="2"
+            />
+        <TextBox
+            Grid.Column="0"
+            Grid.Row="1"
+            Text="{Binding GitRepoPath}"
+            />
+        <Button 
+            Grid.Column="1" 
+            Grid.Row="1"
+            Content="Browse..."
+            Command="{Binding BrowseGitRepoCommand}"
+        />
+        <TextBlock
+            Grid.Column="0"
+            Grid.Row="2"
+            Grid.ColumnSpan="2"
+            Text="{Binding GitRepoErrors}"
+            Foreground="Red"
+            Visibility="{Binding GitRepoErrorsVisibility}"
+            />
+        <TextBlock
+            Grid.Column="0"
+            Grid.Row="3"
+            Grid.ColumnSpan="2"
+            Text="{Binding SolutionPromptText}"
+            />
+        <TextBox
+            Grid.Column="0"
+            Grid.Row="4"
+            Text="{Binding SolutionPath}"
+            />
+        <Button
+            Grid.Column="1"
+            Grid.Row="4"
+            Content="Browse..."
+            Command="{Binding BrowseSolutionCommand}"
+            />
+        <TextBlock
+            Grid.Column="0"
+            Grid.Row="5"
+            Grid.ColumnSpan="2"
+            Text="{Binding SolutionPathErrors}"
+            Foreground="Red"
+            Visibility="{Binding SolutionPathErrorsVisibility}"
+            />
+        <Button 
+            Grid.Column="0"
+            Grid.Row="6"
+            Grid.ColumnSpan="2"
+            Content="OK"
+            Command="{Binding OKCommand}"
+            IsDefault="True"
+            />
+    </Grid>
+</Window>
