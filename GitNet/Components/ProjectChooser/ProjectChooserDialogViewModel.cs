@@ -1,6 +1,6 @@
-﻿namespace GitNet;
+﻿namespace GitNet.Components.ProjectChooser;
 
-public class ProjectChooserDialogViewModel : NotifyDataErrorInfoBase
+public class ProjectChooserDialogViewModel : NotifyDataErrorInfoBase, IMainWindowContent
 {
     private readonly GitRepoPathValidator _gitRepoPathValidator;
     private readonly SolutionPathValidator _solutionPathValidator;
@@ -11,15 +11,17 @@ public class ProjectChooserDialogViewModel : NotifyDataErrorInfoBase
     private string _solutionPath = string.Empty;
     private Visibility _solutionPathErrorsVisibility;
     
-    public ProjectChooserDialogViewModel(GitRepoPathValidator gitRepoPathValidator, SolutionPathValidator solutionPathValidator)
+    public ProjectChooserDialogViewModel(GitRepoPathValidator gitRepoPathValidator,
+        SolutionPathValidator solutionPathValidator,
+        IMainWindowContentChooser mainWindowContentChooser)
     {
         _gitRepoPathValidator = gitRepoPathValidator;
         _solutionPathValidator = solutionPathValidator;
         BrowseGitRepoCommand = new DelegateCommand(BrowseGitRepo);
         BrowseSolutionCommand = new DelegateCommand(BrowseSolution);
+        OkCommand = new OkCommand(this, mainWindowContentChooser);
     }
     
-    public string WindowTitle => AppConstants.AppName;
     public string GitRepoPromptText => "Choose a git repository to open:";
     public string SolutionPromptText => "Choose a solution file to open:";
     public int WindowWidth => 300;
@@ -49,6 +51,8 @@ public class ProjectChooserDialogViewModel : NotifyDataErrorInfoBase
 
     public ICommand BrowseGitRepoCommand { get; }
     public ICommand BrowseSolutionCommand { get; }
+    
+    public ICommand OkCommand { get; }
 
     private void BrowseGitRepo()
     {

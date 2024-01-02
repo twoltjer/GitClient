@@ -1,0 +1,32 @@
+﻿<Window x:Class="GitNet.MainWindowView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:GitNet"
+        xmlns:resources="clr-namespace:GitNet.Resources"
+        xmlns:projectChooser="clr-namespace:GitNet.Components.ProjectChooser"
+        xmlns:logViewer="clr-namespace:GitNet.Components.LogViewer"
+        mc:Ignorable="d"
+        Title="{x:Static resources:AppConstants.AppName}"
+        Height="{Binding WindowHeight}"
+        Width="{Binding WindowWidth}"
+        MaxHeight="{Binding WindowHeight}"
+        MaxWidth="{Binding WindowWidth}"
+        d:DataContext="{d:DesignInstance local:MainWindowViewModel}"
+        >
+    <Grid>
+        <StackPanel>
+            <Grid Visibility="{Binding ProjectChooserVisibility}">
+                <projectChooser:ProjectChooserView
+                    DataContext="{Binding ProjectChooser, Mode=OneWay}"
+                    />
+            </Grid>
+            <Grid Visibility="{Binding LogVisibility}">
+                <logViewer:LogView
+                    DataContext="{Binding Log, Mode=OneWay}"
+                    />
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Window>

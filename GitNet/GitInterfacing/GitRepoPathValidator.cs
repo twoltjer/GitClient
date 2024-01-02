@@ -1,4 +1,4 @@
-﻿namespace GitNet;
+﻿namespace GitNet.GitInterfacing;
 
 public class GitRepoPathValidator
 {

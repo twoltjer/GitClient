@@ -1,4 +1,4 @@
-﻿namespace GitNet.Test;
+﻿namespace GitNet.Test.TestResources.Paths;
 
 public class ActualFilePath : PathBase
 {

@@ -1,7 +1,4 @@
-﻿using System.Diagnostics;
-using Xunit.Abstractions;
-
-namespace GitNet.Test;
+﻿namespace GitNet.Test;
 
 public class CommandLineHelpers
 {

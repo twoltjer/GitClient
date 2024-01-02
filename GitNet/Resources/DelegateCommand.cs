@@ -1,4 +1,4 @@
-﻿namespace GitNet;
+﻿namespace GitNet.Resources;
 
 public class DelegateCommand(Action executeMethod) : ICommand
 {

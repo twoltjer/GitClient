@@ -1,3 +1,9 @@
+using GitNet.Components.ProjectChooser;
+using GitNet.GitInterfacing;
+using GitNet.SolutionInterfacing;
+using GitNet.Test.TestResources.Paths;
+using NSubstitute;
+
 namespace GitNet.Test;
 
 public class ProjectChooserDialogViewModelTests
@@ -37,7 +43,7 @@ public class ProjectChooserDialogViewModelTests
     {
         var projectChooserDialogViewModel = new ProjectChooserDialogViewModel(
             new GitRepoPathValidator(), 
-            new SolutionPathValidator());
+            new SolutionPathValidator(), Substitute.For<IMainWindowContentChooser>());
         projectChooserDialogViewModel.Initialize();
         
         if (gitRepoPath != null)

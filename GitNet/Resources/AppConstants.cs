@@ -1,4 +1,4 @@
-﻿namespace GitNet;
+﻿namespace GitNet.Resources;
 
 public static class AppConstants
 {

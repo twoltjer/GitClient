@@ -1,17 +1,13 @@
-﻿<Window x:Class="GitNet.ProjectChooserView"
+﻿<UserControl x:Class="GitNet.Components.ProjectChooser.ProjectChooserView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:local="clr-namespace:GitNet"
+        xmlns:local="clr-namespace:GitNet.Components.ProjectChooser"
         mc:Ignorable="d"
-        Width="{Binding WindowWidth}"
-        Height="{Binding WindowHeight}"
-        MaxHeight="{Binding WindowHeight}"
         d:DesignHeight="{Binding WindowHeight}"
         d:DesignWidth="{Binding WindowWidth}"
         d:DataContext="{d:DesignInstance local:ProjectChooserDialogViewModel}"
-        Title="{Binding WindowTitle}"
         >
     <Grid Margin="8">
         <Grid.ColumnDefinitions>
@@ -81,8 +77,8 @@
             Grid.Row="6"
             Grid.ColumnSpan="2"
             Content="OK"
-            Command="{Binding OKCommand}"
+            Command="{Binding OkCommand}"
             IsDefault="True"
             />
     </Grid>
-</Window>
+</UserControl>

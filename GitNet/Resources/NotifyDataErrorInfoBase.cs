@@ -1,4 +1,4 @@
-﻿namespace GitNet;
+﻿namespace GitNet.Resources;
 
 public class NotifyDataErrorInfoBase : ViewModelBase, INotifyDataErrorInfo
 {
@@ -34,5 +34,6 @@ public class NotifyDataErrorInfoBase : ViewModelBase, INotifyDataErrorInfo
             _errors[propertyName] = errors;
         }
         ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(propertyName));
+        OnPropertyChanged(nameof(HasErrors));
     }
 }

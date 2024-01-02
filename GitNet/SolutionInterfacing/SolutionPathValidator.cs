@@ -1,4 +1,4 @@
-﻿namespace GitNet;
+﻿namespace GitNet.SolutionInterfacing;
 
 public class SolutionPathValidator
 {
