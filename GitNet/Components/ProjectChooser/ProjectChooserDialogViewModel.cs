@@ -24,8 +24,12 @@ public class ProjectChooserDialogViewModel : NotifyDataErrorInfoBase, IMainWindo
     
     public string GitRepoPromptText => "Choose a git repository to open:";
     public string SolutionPromptText => "Choose a solution file to open:";
-    public int WindowWidth => 300;
-    public int WindowHeight => 200;
+    public double WindowWidth => 300;
+    public double WindowHeight => 200;
+    public double WindowMaxWidth => 300;
+    public double WindowMaxHeight => 200;
+    public double WindowMinWidth => 300;
+    public double WindowMinHeight => 200;
 
     public string GitRepoPath
     {

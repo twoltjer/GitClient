@@ -2,8 +2,24 @@
 
 public class MainWindowViewModel : ViewModelBase, IMainWindowContentChooser
 {
-    public int WindowWidth => CurrentContentViewModel.WindowWidth;
-    public int WindowHeight => CurrentContentViewModel.WindowHeight;
+    public double WindowWidth => CurrentContentViewModel.WindowWidth;
+    public double WindowHeight => CurrentContentViewModel.WindowHeight;
+    public double WindowMaxWidth => CurrentContentViewModel.WindowMaxWidth;
+    public double WindowMaxHeight => CurrentContentViewModel.WindowMaxHeight;
+    public double WindowMinWidth => CurrentContentViewModel.WindowMinWidth;
+    public double WindowMinHeight => CurrentContentViewModel.WindowMinHeight;
+    
+    public string CurrentSolutionPath
+    {
+        get => Log.SolutionPath;
+        set => Log.SolutionPath = value;
+    }
+
+    public string CurrentGitRepoPath 
+    {
+        get => Log.GitRepoPath;
+        set => Log.GitRepoPath = value;
+    }
     
     private Visibility _projectChooserVisibility = Visibility.Visible;
     private Visibility _logVisibility = Visibility.Collapsed;
@@ -11,6 +27,7 @@ public class MainWindowViewModel : ViewModelBase, IMainWindowContentChooser
 
     public MainWindowViewModel()
     {
+        Log = new LogViewModel();
         ProjectChooser = new ProjectChooserDialogViewModel(
             new GitRepoPathValidator(),
             new SolutionPathValidator(),
@@ -43,7 +60,7 @@ public class MainWindowViewModel : ViewModelBase, IMainWindowContentChooser
         }
     }
 
-    public LogViewModel Log { get; } = new LogViewModel();
+    public LogViewModel Log { get; }
     
     public Visibility LogVisibility
     {
@@ -58,7 +75,7 @@ public class MainWindowViewModel : ViewModelBase, IMainWindowContentChooser
     public enum MainWindowContent
     {
         ProjectChooser,
-        Log
+        Log,
     }
 
     public MainWindowContent CurrentContent
@@ -88,6 +105,8 @@ public class MainWindowViewModel : ViewModelBase, IMainWindowContentChooser
             OnPropertyChanged(nameof(CurrentContentViewModel));
             OnPropertyChanged(nameof(WindowWidth));
             OnPropertyChanged(nameof(WindowHeight));
+            OnPropertyChanged(nameof(WindowMaxWidth));
+            OnPropertyChanged(nameof(WindowMaxHeight));
         }
     }
 }
@@ -95,10 +114,16 @@ public class MainWindowViewModel : ViewModelBase, IMainWindowContentChooser
 public interface IMainWindowContentChooser
 {
     MainWindowViewModel.MainWindowContent CurrentContent { get; set; }
+    string CurrentSolutionPath { get; set; }
+    string CurrentGitRepoPath { get; set; }
 }
 
 public interface IMainWindowContent
 {
-    int WindowWidth { get; }
-    int WindowHeight { get; }
+    double WindowHeight { get; }
+    double WindowWidth { get; }
+    double WindowMaxHeight { get; }
+    double WindowMaxWidth { get; }
+    double WindowMinHeight { get; }
+    double WindowMinWidth { get; }
 }

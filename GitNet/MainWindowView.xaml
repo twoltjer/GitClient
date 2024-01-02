@@ -9,10 +9,12 @@
         xmlns:logViewer="clr-namespace:GitNet.Components.LogViewer"
         mc:Ignorable="d"
         Title="{x:Static resources:AppConstants.AppName}"
-        Height="{Binding WindowHeight}"
-        Width="{Binding WindowWidth}"
-        MaxHeight="{Binding WindowHeight}"
-        MaxWidth="{Binding WindowWidth}"
+        Height="{Binding WindowHeight, Mode=OneWay}"
+        Width="{Binding WindowWidth, Mode=OneWay}"
+        MaxHeight="{Binding WindowMaxHeight, Mode=OneWay}"
+        MaxWidth="{Binding WindowMaxWidth, Mode=OneWay}"
+        MinHeight="{Binding WindowMinHeight, Mode=OneWay}"
+        MinWidth="{Binding WindowMinWidth, Mode=OneWay}"
         d:DataContext="{d:DesignInstance local:MainWindowViewModel}"
         >
     <Grid>

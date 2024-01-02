@@ -25,6 +25,8 @@ public class OkCommand : ICommand
 
     public void Execute(object? parameter)
     {
+        _mainWindowContentChooser.CurrentSolutionPath = _viewModel.SolutionPath;
+        _mainWindowContentChooser.CurrentGitRepoPath = _viewModel.GitRepoPath;
         _mainWindowContentChooser.CurrentContent = MainWindowViewModel.MainWindowContent.Log;
     }
 
